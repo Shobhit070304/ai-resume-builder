@@ -23,34 +23,57 @@ const Summarization = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">AI Text Summarization</h2>
-
-      <textarea
-        className="w-full p-3 border rounded-md"
-        rows="5"
-        placeholder="Enter text to summarize..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-
-      <button
-        onClick={handleSummarize}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-        disabled={loading}
-      >
-        {loading ? "Summarizing..." : "Summarize"}
-      </button>
-
-      {error && <p className="text-red-500 mt-3">{error}</p>}
-
-      {summary && (
-        <div className="mt-4 p-3 bg-white border rounded-md">
-          <h3 className="font-semibold">Summary:</h3>
-          <p>{summary}</p>
+    <>
+      <div className="w-screen h-screen flex gap-5 justify-center items-center bg-zinc-900 text-white p-5">
+        <div className="bg-zinc-800 h-full w-1/5 rounded-xl">
+          <h3 className="text-center text-2xl font-semibold p-5">Chats</h3>
+          <div className="p-4 flex flex-col gap-2 mt-4">
+            <div className="bg-zinc-700 text-gray-400 hover:text-gray-200 hover:bg-zinc-600 cursor-pointer px-4 py-2 rounded-xl">
+              Give me a tree para
+            </div>
+            <div className="w-full h-[1px] bg-zinc-700"></div>
+            <div className="bg-zinc-700 text-gray-400 hover:text-gray-200 hover:bg-zinc-600 cursor-pointer px-4 py-2 rounded-xl">
+              Give me a tree para
+            </div>
+            <div className="w-full h-[1px] bg-zinc-700"></div>
+            <div className="bg-zinc-700 text-gray-400 hover:text-gray-200 hover:bg-zinc-600 cursor-pointer px-4 py-2 rounded-xl">
+              Give me a tree para
+            </div>
+          </div>
         </div>
-      )}
-    </div>
+        <div className="max-w-2xl w-2/3 mx-auto p-6 bg-zinc-300 text-black rounded-lg shadow-md">
+          <h2 className="text-3xl text-zinc-600 text-center m-auto font-semibold mb-4">
+            AI Text Summarization
+          </h2>
+          <div>
+            <textarea
+              className="w-full p-3 border rounded-md"
+              rows="5"
+              placeholder="Enter text to summarize..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+
+            <button
+              onClick={handleSummarize}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              disabled={loading}
+            >
+              {loading ? "Summarizing..." : "Summarize"}
+            </button>
+
+            {error && <p className="text-red-500 mt-3">{error}</p>}
+
+            {summary && (
+              <div className="mt-4 p-3 bg-white border rounded-md">
+                <h3 className="font-semibold">Summary:</h3>
+                <p>{summary}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

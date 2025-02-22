@@ -20,7 +20,7 @@ function UserContext({ children }) {
   };
 
   return (
-    <UserDataContext.Provider value={{ user, setUser, loading }}>
+    <UserDataContext.Provider value={{ user, loading, logout }}>
       {children}
     </UserDataContext.Provider>
   );

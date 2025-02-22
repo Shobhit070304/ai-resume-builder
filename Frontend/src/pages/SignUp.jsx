@@ -25,7 +25,7 @@ function SignUp() {
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        navigate("/home");
+        navigate("/");
       } else {
         alert("Registration failed. Please try again.");
       }
@@ -42,9 +42,7 @@ function SignUp() {
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-zinc-900">
       <div className="px-5 w-1/4 py-10 rounded-lg border-2 border-gray-500 bg-zinc-800  text-white">
-        <h1 className="text-4xl text-white font-bold text-center text-white">
-          Signup
-        </h1>
+        <h1 className="text-4xl  font-bold text-center text-white">Signup</h1>
         <form onSubmit={(e) => handleSignup(e)}>
           <h3 className="text-lg text-gray-400">Name</h3>
           <input
@@ -70,7 +68,7 @@ function SignUp() {
             className="w-full py-2 px-4 border-2 border-gray-400  rounded-md placeholder:text-gray-400 my-2 "
             placeholder="Enter your password"
           />
-          <button className="w-full text-white font-semibold py-2 rounded-lg mt-4 bg-blue-500">
+          <button className="w-full cursor-pointer text-white font-semibold py-2 rounded-lg mt-4 bg-blue-500">
             Sign up
           </button>
           <p className="w-full text-gray-300 text-center mt-2">

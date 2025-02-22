@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const genAI = require("../controllers/ai-controller");
-
+const generateContent = require("../services/ai-code-reviewer-service");
 // Text Summarization
 router.post("/summarize", async (req, res) => {
   try {
@@ -35,6 +35,16 @@ router.post("/chat", async (req, res) => {
     console.error("Error in chatbot:", error);
     res.status(500).json({ message: "Server error" });
   }
+});
+
+//Code-review
+router.post("/get-review", async function (req, res) {
+  const code = req.body.code;
+  if (!code) {
+    return res.status(400).send("Please provide a prompt");
+  }
+  const result = await generateContent(code);
+  res.send(result);
 });
 
 module.exports = router;
